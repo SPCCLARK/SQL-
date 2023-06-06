@@ -1,0 +1,59 @@
+/* What does the app's SQL look like? */
+
+CREATE TABLE character
+    (id INTEGER PRIMARY KEY,
+    name TEXT,
+    type TEXT,
+    skillset TEXT);
+    
+INSERT into character (id, name, type, skillset) VALUES 
+    ( 1, "Jin Kazama", "attack", 
+        "omen stance, EWGF, evil intent, laser scraper"); 
+        
+INSERT into character (id, name, type, skillset) VALUES 
+    (12, "Yoahimitsu", "balance", "tenshu kuzushi, ashura blade,         seiken douharai, oni killer");
+
+INSERT into character (id, name, type, skillset) VALUES        
+    (11, "Steve Fox", "support", "british combo, tempest combo,         lancaster combo, lightning combo");
+    
+INSERT into character (id, name, type, skillset) VALUES 
+    ( 3, "Hiruzen Sarutobi", "balance", "doton dorukiki, suiton         sujuhiki, katon garyu endan, kage shuriken") ;
+    
+INSERT into character (id, name, type, skillset) VALUES 
+    (5, "Uchiha Itachi", "support", "tsukiyomi, izanmi, katon           hosenka, susano"); 
+    
+INSERT into character (id, name, type, skillset) VALUES 
+    (8, "Nagato Uzumaki", "attack", "shinra tensei, bisho tim,           shura, chibaku tensei"); 
+    
+INSERT into character (id, name, type, skillset) VALUES 
+    ( 2, "Ryu", "balance", "shoryuken, hadoken, tatsumaki, shin         shoryuken shin hashogeki"); 
+    
+INSERT into character (id, name, type, skillset) VALUES 
+    (6, "Dhalsim", "support", "yoga flame, yoga teleport, yoga     burner, yoga sunburst") ; 
+    
+INSERT into character (id, name, type, skillset) VALUES 
+    (7, "Guile", "attack", "sonic boom, sonic blade, drake fang,         knee bazooka") ; 
+ 
+ INSERT into character (id, name, type, skillset) VALUES 
+    (4, "Kid Buu", "attack", "instant transmission") ; 
+    
+INSERT into character (id, name, type, skillset) VALUES 
+        (9, "Gohan", "balance", "dragon punch,manseko, kamehameh             a, SBC") ;
+
+INSERT into character (id, name, type, skillset) VALUES 
+        (10, "Trunks", "support", "heavenly sword, burning                  attack, buster canon, god breaker");
+ 
+ /* UPDATE the skillset of a character */
+       
+SELECT * FROM character;
+ UPDATE character SET skillset = "instant transmission, arm ball, candy beam, super               kamehameha, pearl flash" 
+ WHERE character.id = 4 ; 
+ 
+ SELECT * FROM character ;
+ 
+ /* DELETE one row from the database */
+
+DELETE FROM character WHERE id = 1 ;
+
+SELECT * FROM character ;
+ 
