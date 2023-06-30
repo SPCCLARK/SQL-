@@ -24,6 +24,7 @@ SELECT distinct acctnum
     AND orderid <> 'Order ID' ;
   
 /*   Which product was the cheapest one sold in January, and what was the price?     */   
+
 SELECT Product, min(price) FROM BIT_DB.JanSales; 
 
 /*   What is the total revenue for each product sold in January? (Revenue can be calculated using the number of products sold and the price of the products).   */
@@ -35,7 +36,7 @@ SELECT
     FROM  BIT_DB.FebSales
     WHERE location = "548 Lincoln St, Seattle, WA 98101" ;
     
-/*    Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?         */
+/*    Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?  */
 
 SELECT 
     acctnum, Product, Quantity, sum(Quantity*price)
@@ -44,12 +45,39 @@ SELECT
     LEFT OUTER JOIN BIT_DB.customers
     WHERE Quantity < 2  ;
     
-/*      How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?       */
+/*  How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?  */
 
-SELECT SUM(quantity), price, product
-FROM BIT_DB.JanSales
-GROUP BY product, price ;
+SELECT 
+    SUM(quantity), price, product
+    FROM BIT_DB.JanSales
+    GROUP BY product, price ;
 
+
+SELECT orderdate 
+FROM BIT_DB.FebSales 
+WHERE orderdate between "02/13/19 00:00" AND "02/18/19 00:00" ;
+
+
+SELECT location 
+FROM BIT_DB.FebSales
+WHERE orderdate = "02/18/19 01:35";
+
+
+SELECT sum(quantity)
+FROM BIT_DB.FebSales
+WHERE orderdate LIKE "02/18/19%"; 
+
+
+SELECT DISTINCT Product, Price 
+FROM BIT_DB.FebSales 
+WHERE Price LIKE "%.99" ;
+
+/* List all the products sold in Los Angeles in February, and include how many of each were sold. */
+
+SELECT location, Product, SUM(Quantity) 
+FROM BIT_DB.FebSales
+WHERE location LIKE "%Los Angeles%"
+GROUP BY Product ;
 
 
     
